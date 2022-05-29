@@ -4,7 +4,11 @@ const cartTotal = (
     price: number;
   }>
 ) => {
-  if (cart.length === 0) return 0;
+  let total: number;
+  if (cart.length === 0) {
+    total = 0;
+    return total;
+  }
 };
 
 export default cartTotal;
