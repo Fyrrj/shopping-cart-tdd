@@ -25,3 +25,9 @@ describe("cartTotal", () => {
     expect(total2).toEqual(170);
   });
 });
+
+describe("addToCart", () => {
+  it("should add product to cart", () => {
+    expect(products.length).toBeGreaterThan(newProducts.length);
+  });
+});
