@@ -15,6 +15,7 @@ const products = [
   },
 ];
 
+const addedProduct = {};
 const newProducts: Array<{ name: string; price: number }> = [];
 
 const total = cartTotal([]);
