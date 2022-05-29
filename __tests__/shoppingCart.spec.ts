@@ -1,7 +1,6 @@
 import cartTotal from "../src/shoppingCart";
 
-const total = cartTotal([]);
-const total2 = cartTotal([
+const products = [
   {
     name: "ball",
     price: 10,
@@ -14,7 +13,12 @@ const total2 = cartTotal([
     name: "gloves",
     price: 35,
   },
-]);
+];
+
+const newProducts: Array<{ name: string; price: number }> = [];
+
+const total = cartTotal([]);
+const total2 = cartTotal(products);
 
 describe("cartTotal", () => {
   it("should return 0 if cart is empty", () => {
@@ -28,6 +32,20 @@ describe("cartTotal", () => {
 
 describe("addToCart", () => {
   it("should add product to cart", () => {
-    expect(products.length).toBeGreaterThan(newProducts.length);
+    expect(newProducts).toEqual([
+      {
+        name: "ball",
+        price: 10,
+      },
+      {
+        name: "boots",
+        price: 125,
+      },
+      {
+        name: "gloves",
+        price: 35,
+      },
+      addedProduct,
+    ]);
   });
 });
