@@ -8,6 +8,7 @@ const addedProduct = {
   name: "smartphone",
   price: 400,
 };
+
 const newProducts: Array<{ id: number; name: string; price: number }> =
   handleAddProduct(products, addedProduct);
 
@@ -44,5 +45,11 @@ describe("addToCart", () => {
       },
       addedProduct,
     ]);
+  });
+});
+
+describe("remove product id = 2 from cart", () => {
+  it("should remove product id = 2 from cart", () => {
+    expect(products).toEqual(products.filter((product) => product.id !== 2));
   });
 });
