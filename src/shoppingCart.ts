@@ -31,6 +31,21 @@ export function handleAddProduct(
   return products;
 }
 
+export function handleRemoveProduct(
+  products: Array<{
+    id: number;
+    name: string;
+    price: number;
+  }>,
+  removedProductId: number
+) {
+  return products.filter(
+    (product: { id: number; name: string; price: number }) => {
+      product.id !== removedProductId;
+    }
+  );
+}
+
 export function handleCartTotal(
   cart: Array<{
     id: number;
