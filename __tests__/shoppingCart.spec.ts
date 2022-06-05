@@ -1,7 +1,11 @@
-import { handleAddProduct, handleCartTotal } from "../src/shoppingCart";
-import { handleProducts } from "../src/shoppingCart";
+import {
+  handleAddProduct,
+  handleCartTotal,
+  handleProducts,
+  handleRemoveProduct,
+} from "../src/shoppingCart";
 
-const products = handleProducts();
+let products = handleProducts();
 
 const addedProduct = {
   id: 3,
@@ -14,6 +18,8 @@ const newProducts: Array<{ id: number; name: string; price: number }> =
 
 const total = handleCartTotal([]);
 const total2 = handleCartTotal(products);
+
+products = handleRemoveProduct(products, 2);
 
 describe("cartTotal", () => {
   it("should return 0 if cart is empty", () => {
