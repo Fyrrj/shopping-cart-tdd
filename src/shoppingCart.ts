@@ -27,7 +27,6 @@ export function handleAddProduct(
   newProduct: { id: number; name: string; price: number }
 ) {
   products.push(newProduct);
-  console.log(products);
   return products;
 }
 
@@ -39,11 +38,11 @@ export function handleRemoveProduct(
   }>,
   removedProductId: number
 ) {
-  return products.filter(
-    (product: { id: number; name: string; price: number }) => {
-      product.id !== removedProductId;
-    }
+  const newProducts = products.filter(
+    (product) => product.id !== removedProductId
   );
+  console.log(newProducts);
+  return newProducts;
 }
 
 export function handleCartTotal(

@@ -5,7 +5,7 @@ import {
   handleRemoveProduct,
 } from "../src/shoppingCart";
 
-let products = handleProducts();
+const products = handleProducts();
 
 const addedProduct = {
   id: 3,
@@ -19,7 +19,8 @@ const newProducts: Array<{ id: number; name: string; price: number }> =
 const total = handleCartTotal([]);
 const total2 = handleCartTotal(products);
 
-products = handleRemoveProduct(products, 2);
+const productsAfterRemove: Array<{ id: number; name: string; price: number }> =
+  handleRemoveProduct(products, 2);
 
 describe("cartTotal", () => {
   it("should return 0 if cart is empty", () => {
@@ -56,6 +57,22 @@ describe("addToCart", () => {
 
 describe("remove product id = 2 from cart", () => {
   it("should remove product id = 2 from cart", () => {
-    expect(products).toEqual(products.filter((product) => product.id !== 2));
+    expect(productsAfterRemove).toEqual([
+      {
+        id: 0,
+        name: "ball",
+        price: 10,
+      },
+      {
+        id: 1,
+        name: "boots",
+        price: 125,
+      },
+      {
+        id: 3,
+        name: "smartphone",
+        price: 400,
+      },
+    ]);
   });
 });
